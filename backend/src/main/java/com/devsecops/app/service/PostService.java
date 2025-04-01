@@ -27,14 +27,14 @@ public class PostService {
      * @return A post object
      */
     public Post createPost() {
-        long id = counter.incrementAndGet();
-        return new Post(
-            id,
-            1L,
-            faker.name().fullName(),
-            faker.internet().emailAddress(),
-            faker.lorem().paragraph()
-        );
+        Long id = counter.incrementAndGet();
+        Post post = new Post();
+        post.setId(id);
+        post.setPostID(1L);
+        post.setName(faker.name().fullName());
+        post.setEmail(faker.internet().emailAddress());
+        post.setBody(faker.lorem().paragraph());
+        return post;
     }
     
     /**
